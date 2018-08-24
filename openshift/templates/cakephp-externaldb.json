@@ -15,7 +15,7 @@
       "template.openshift.io/bindable": "false"
     }
   },
-  "message": "The following service(s) have been created in your project: ${NAME}, ${DATABASE_SERVICE_NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
+  "message": "The following service(s) have been created in your project: ${NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/openshift/cake-ex/blob/master/README.md.",
   "labels": {
       "template": "cakephp-externaldb",
       "app": "cakephp-externaldb"
@@ -38,11 +38,7 @@
       "kind": "Service",
       "apiVersion": "v1",
       "metadata": {
-        "name": "${NAME}",
-        "annotations": {
-          "description": "Exposes and load balances the application pods",
-          "service.alpha.openshift.io/dependencies": "[{\"name\": \"${DATABASE_SERVICE_NAME}\", \"kind\": \"Service\"}]"
-        }
+        "name": "${NAME}"
       },
       "spec": {
         "ports": [
@@ -229,6 +225,14 @@
                     "value": "${DATABASE_SERVICE_NAME}"
                   },
                   {
+                    "name": "SQLSERVICE_SERVICE_HOST",
+                    "value": "${SQLSERVICE_SERVICE_HOST}"
+                  },
+                  {
+                    "name": "SQLSERVICE_SERVICE_PORT",
+                    "value": "${SQLSERVICE_SERVICE_PORT}"
+                  },
+                  {
                     "name": "DATABASE_ENGINE",
                     "value": "${DATABASE_ENGINE}"
                   },
@@ -288,22 +292,6 @@
         }
       }
     },
-    {
-      "kind": "Service",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "${DATABASE_SERVICE_NAME}",
-        "annotations": {
-          "description": "Exposes the database server"
-        }
-      },
-      "spec": {
-        "type": "ExternalName",
-        "externalName": "${DATABASE_EXTERNAL_NAME}",
-        "selector": {
-        }
-      }
-    }
   ],
   "parameters": [
     {
@@ -375,13 +363,19 @@
       "name": "DATABASE_SERVICE_NAME",
       "displayName": "Database Service Name",
       "required": true,
-      "value": "external-mysql-service"
+      "value": "sqlservice"
     },
     {
-      "name": "DATABASE_EXTERNAL_NAME",
-      "displayName": "Database External Name",
+      "name": "SQLSERVICE_SERVICE_HOST",
+      "displayName": "Database Host Name",
       "required": true,
       "value": "cakephptestserver2.database.windows.net"
+    },
+    {
+      "name": "SQLSERVICE_SERVICE_PORT",
+      "displayName": "Database Port Number",
+      "required": true,
+      "value": "1433"
     },
     {
       "name": "DATABASE_ENGINE",
