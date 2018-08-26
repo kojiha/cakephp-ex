@@ -394,7 +394,7 @@
       "name": "DATABASE_USER",
       "displayName": "Database User",
       "required": true,
-      "value": "mysqladmin@os-mysqldatabase"
+      "value": "cakephpuser@os-mysqldatabase"
     },
     {
       "name": "DATABASE_PASSWORD",
