@@ -369,38 +369,38 @@
       "name": "SQLSERVICE_SERVICE_HOST",
       "displayName": "Database Host Name",
       "required": true,
-      "value": "cakephptestserver2.database.windows.net"
+      "value": "os-mysqldatabase.mysql.database.azure.com"
     },
     {
       "name": "SQLSERVICE_SERVICE_PORT",
       "displayName": "Database Port Number",
       "required": true,
-      "value": "1433"
+      "value": "3306"
     },
     {
       "name": "DATABASE_ENGINE",
       "displayName": "Database Engine",
       "description": "Database engine: postgresql, mysql or sqlite (default).",
       "required": true,
-      "value": "Sqlserver"
+      "value": "mysql"
     },
     {
       "name": "DATABASE_NAME",
       "displayName": "Database Name",
       "required": true,
-      "value": "cakephptest"
+      "value": "cakephp"
     },
     {
       "name": "DATABASE_USER",
       "displayName": "Database User",
       "required": true,
-      "value": "serveradmin"
+      "value": "mysqladmin@os-mysqldatabase"
     },
     {
       "name": "DATABASE_PASSWORD",
       "displayName": "Database Password",
       "required": true,
-      "value": "SQLUser100"
+      "value": "#OrangeCake2000"
     },
     {
       "name": "CAKEPHP_SECRET_TOKEN",
