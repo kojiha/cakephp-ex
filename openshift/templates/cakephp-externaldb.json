@@ -149,8 +149,8 @@
       },
       "spec": {
         "strategy": {
-          "type": "Recreate",
-          "recreateParams": {
+          "type": "Rolling",
+          "rollingParams": {
             "pre": {
               "failurePolicy": "Retry",
               "execNewPod": {
