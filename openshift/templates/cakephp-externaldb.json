@@ -242,12 +242,7 @@
                   },
                   {
                     "name": "DATABASE_USER",
-                    "valueFrom": {
-                      "secretKeyRef" : {
-                        "name" : "${NAME}",
-                        "key" : "database-user"
-                      }
-                    }
+                    "value": "${DATABASE_USER}"
                   },
                   {
                     "name": "DATABASE_PASSWORD",
@@ -369,7 +364,7 @@
       "name": "SQLSERVICE_SERVICE_HOST",
       "displayName": "Database Host Name",
       "required": true,
-      "value": "os-mysqldatabase.mysql.database.azure.com"
+      "value": "hostname"
     },
     {
       "name": "SQLSERVICE_SERVICE_PORT",
@@ -388,19 +383,19 @@
       "name": "DATABASE_NAME",
       "displayName": "Database Name",
       "required": true,
-      "value": "cakephp"
+      "value": "databasename"
     },
     {
       "name": "DATABASE_USER",
       "displayName": "Database User",
       "required": true,
-      "value": "cakephpuser@os-mysqldatabase"
+      "value": "username"
     },
     {
       "name": "DATABASE_PASSWORD",
       "displayName": "Database Password",
       "required": true,
-      "value": "#OrangeCake2000"
+      "value": "password"
     },
     {
       "name": "CAKEPHP_SECRET_TOKEN",
